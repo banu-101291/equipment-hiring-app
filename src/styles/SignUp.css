@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container h4 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .custom-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .custom-button:hover {
+    background-color: #007bff;
+  }
+  
+  .login-link {
+    color: #007bff;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style for text area inside the form */
+  textarea.form-control {
+    height: 150px; /* Adjust the height as needed */
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
