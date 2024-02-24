@@ -10,7 +10,7 @@ export default function PrivateRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get("https://ecommerce-u4ub.onrender.com/api/v1/auth/admin-auth");
+      const res = await axios.get("API");
       if (res.data.ok) {
         setOk(true);
       } else {
@@ -20,5 +20,5 @@ export default function PrivateRoute() {
     if (auth?.token) authCheck();
   }, [auth?.token]);
 
-  return ok ? <Outlet /> : <Spinner path="" />;
+  return ok ? <Outlet /> : <Spinner />;
 }

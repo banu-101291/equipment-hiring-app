@@ -3,64 +3,85 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios'; // Import Axios library
 import '../styles/SignUp.css';
+import toast from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
+import Layout from './Layout/Layout';
 
 const SignUp = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
-
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+   
+  
+    // form function
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            // Make API call to register user
-            const response = await axios.post('/api/signup', formData);
-            console.log("Response:", response.data);
-
-            // Clear the form after successful submission
-            setFormData({
-                name: "",
-                email: "",
-                password: ""
-            });
-
-        } catch (error) {
-            console.error("Error submitting form:", error);
-            // Handle error, if any
+      e.preventDefault();
+      try {
+        const res = await axios.post("api", {
+          name,
+          email,
+          password,
+          
+        });
+        if (res && res.data.success) {
+          toast.success(res.data && res.data.message);
+          navigate("/login");
+        } else {
+          toast.error(res.data.message);
         }
+      } catch (error) {
+        console.log(error);
+        toast.error("Something went wrong");
+      }
     };
-
     return (
-        <div className="container">
-            <div className="form-container">
-                <h4>SignUp</h4>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group>
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} required />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} required />
-                    </Form.Group>
+    
+       <Layout title="Signup">
+       <div className="form-container ">
+         <Form onSubmit={handleSubmit}>
+           <h4 className="title">REGISTER FORM</h4>
+           <div className="mb-3">
+             <input
+               type="text"
+               value={name}
+               onChange={(e) => setName(e.target.value)}
+               className="form-control"
+               id="exampleInputEmail1"
+               placeholder="Enter Your Name"
+               required
+               autoFocus
+             />
+           </div>
+           <div className="mb-3">
+             <input
+               type="email"
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+               className="form-control"
+               id="exampleInputEmail1"
+               placeholder="Enter Your Email "
+               required
+             />
+           </div>
+           <div className="mb-3">
+             <input
+               type="password"
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+               className="form-control"
+               id="exampleInputPassword1"
+               placeholder="Enter Your Password"
+               required
+             />
+           </div>
                     <Button variant="primary" type="submit" className="custom-button">Register</Button>
                     <p>Already have an account?<Link to='/login' className="login-link">Login</Link></p>
-                </Form>
+              </Form> 
             </div>
-        </div>
+            </Layout>
+            
+        
     );
 };
 

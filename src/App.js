@@ -12,6 +12,10 @@ import Logout from './pages/Auth/Logout';
 import Dashboard from './pages/user/Dashboard';
 import AuthProvider from "./provider/Authprovider";
 import Routing from "./routes/index";
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import Users from './pages/Admin/Users';
+import AdminRoute from './routes/AdminRoute';
+//import Dashboard from './pages/user/Dashboard';
 
 function App() {
   return (
@@ -24,8 +28,12 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path='/Routing' element={ <AuthProvider><Routing/></AuthProvider>}/>
-       
-        <Route path = '/dashboard' element = {<Dashboard/>}/>
+      
+        <Route path="/dashboard" element={<AdminRoute />}/>
+          <Route path="admin" element={<AdminDashboard />} />
+        <Route path = 'user' element = {<Dashboard/>}/>
+        <Route path="admin/users" element={<Users />} />
+    
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </>
