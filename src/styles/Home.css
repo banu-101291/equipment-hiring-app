@@ -1,4 +1,45 @@
-.banner-img {
+.logo{
+  margin:0;
+  padding:0
+}
+
+
+.body{
+  background-image: url('https://as1.ftcdn.net/v2/jpg/04/58/97/08/1000_F_458970859_IQH5wfP4b0JwIisB2T9HxU6t9wtcmkXB.jpg'
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .banner-img {
     margin-top: 60px;
   }
   
@@ -48,7 +89,7 @@
   /* ==================
   filters
   ============== */
-  .filters h4 {
+  /* .filters h4 {
     margin-top: 100px;
     color: gray !important;
     border-bottom: 1px solid rgba(128, 128, 128, 0.337);
@@ -78,4 +119,5 @@
     color: green;
     font-weight: bold;
     font-size: 20px !important;
-  }
+  } */ 
+

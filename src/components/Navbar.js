@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CgAnchor } from "react-icons/cg";
+
 import '../styles/Navbar.css';
 
 function NavBar() {
   return (
     <nav>
+      <div className='navigation'>
+      
+      <div className="logo">
+      <CgAnchor style={{ fontSize: '3rem' }}/>
+</div>
+
+        <div className='ul'>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -15,8 +24,11 @@ function NavBar() {
         <li>
           <Link to="/signup">SignUp</Link>
         </li>
-        {/* Add more navigation links as needed */}
+   
       </ul>
+      </div>
+      </div>
+      
     </nav>
   );
 }

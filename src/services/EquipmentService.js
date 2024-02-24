@@ -15,3 +15,5 @@ class EquipmentService {
   
   export default EquipmentService;
   
+
+  
