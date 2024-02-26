@@ -40,7 +40,7 @@ const SignUp = () => {
        <Layout title="Signup">
        <div className="form-container ">
          <Form onSubmit={handleSubmit}>
-           <h4 className="title">REGISTER FORM</h4>
+           <h4 className="title">SignUp</h4>
            <div className="mb-3">
              <input
                type="text"

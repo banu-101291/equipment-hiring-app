@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
-import UserMenu from "../../components/Layout/UserMenu";
+import UserMenu from '../../components/Layout/UserMenu';
 import Layout from "./../../components/Layout/Layout";
-import { useAuth } from "../../context/auth";
+import { useAuth} from '../../provider/Authprovider';
 import toast from "react-hot-toast";
 import axios from "axios";
 
 const Profile = () => {
   //context
-  const [auth, setAuth] = useAuth();
+  //const [auth, setAuth] = useAuth();
   //state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+
+  const [auth,setAuth] = useState(JSON.parse(localStorage.getItem('auth')));
+  console.log(auth,typeof auth);
 
   //get user data
   useEffect(() => {
@@ -28,7 +31,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put("https://ecommerce-u4ub.onrender.com/api/v1/auth/profile", {
+      const { data } = await axios.put("api", {
         name,
         email,
         password,
@@ -51,7 +54,7 @@ const Profile = () => {
     }
   };
   return (
-    <Layout title={"Your Profile"}>
+   // <Layout title={"Your Profile"}>
       <div className="container-fluid m-3 p-3">
         <div className="row">
           <div className="col-md-3">
@@ -122,7 +125,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </Layout>
+   // </Layout>
   );
 };
 

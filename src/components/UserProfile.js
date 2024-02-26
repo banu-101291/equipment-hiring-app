@@ -4,7 +4,7 @@ import AuthService from '../services/AuthService';
 function UserProfile({ onLogout }) {
   const handleLogout = () => {
     AuthService.logout();
-    onLogout();
+    // onLogout();
   };
 
   return (
