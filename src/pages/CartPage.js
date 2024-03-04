@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
-import { useCart } from "../context/cart";
-import { useAuth } from "../context/auth";
+import { useCart} from '../provider/cart';
+import { useAuth } from "../provider/Authprovider";
 import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
@@ -13,18 +13,25 @@ const CartPage = () => {
   const totalPrice = () => {
     try {
       let total = 0;
-      cart?.map((item) => {
-        total = total + item.price;
-      });
-      return total.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-      });
+      // Check if cart is an array before iterating
+      if (Array.isArray(cart)) {
+        cart.forEach((item) => {
+          total += item.price; // Add item price to total
+        });
+        return total.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
+      } else {
+        return "Invalid cart data"; // Return error message if cart is not an array
+      }
     } catch (error) {
       console.log(error);
+      return "Error calculating total"; // Handle calculation errors
     }
   };
-  //detele item
+
+  // Function to remove item from cart
   const removeCartItem = (pid) => {
     try {
       let myCart = [...cart];
@@ -36,6 +43,7 @@ const CartPage = () => {
       console.log(error);
     }
   };
+
   return (
     <Layout>
       <div className="container">
@@ -56,10 +64,10 @@ const CartPage = () => {
         <div className="row">
           <div className="col-md-8">
             {cart?.map((p) => (
-              <div className="row mb-2 p-3 card flex-row">
+              <div className="row mb-2 p-3 card flex-row" key={p._id}>
                 <div className="col-md-4">
                   <img
-                    src={`https://ecommerce-u4ub.onrender.com/api/v1/product/product-photo/${p._id}`}
+                    src={`https://hiring-backend-wgpz.onrender.com//${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                     width="100px"
@@ -116,7 +124,7 @@ const CartPage = () => {
                       })
                     }
                   >
-                    Plase Login to checkout
+                    Please Login to Checkout
                   </button>
                 )}
               </div>

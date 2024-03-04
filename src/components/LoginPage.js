@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import '../styles/LoginPage.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
+//import Login from '../pages/Auth/Login';
 
-const Login = () => {
+const LoginPage = () => {
     
   const navigate = useNavigate()
 
@@ -47,9 +48,10 @@ const Login = () => {
                     {/* Add link to create blog if needed */}
                     {/* <Link to='/create'>Create Blog</Link> */}
                 </Form>
+           
             </div>
         </div>
     );
 }
 
-export default Login;
+export default LoginPage;

@@ -7,7 +7,7 @@ import Home from './pages/Home';
 // import PrivateRoute from './utils/PrivateRoute';
 //import NavBar from './components/Navbar';
 import SignUp from './components/SignUp';
-import Login from './components/LoginPage';
+import LoginPage from './components/LoginPage';
 import Logout from './pages/Auth/Logout';
 import Dashboard from './pages/user/Dashboard';
 import AuthProvider from "./provider/Authprovider";
@@ -16,7 +16,8 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import Users from './pages/Admin/Users';
 import AdminRoute from './routes/AdminRoute';
 import Profile from './pages/user/Profile';
-
+import AdminMenu from './components/Layout/AdminMenu';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -26,10 +27,13 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/profile" element={<UserProfilePage />} /> */}
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path='/Routing' element={ <AuthProvider><Routing/></AuthProvider>}/>
+        <Route path="/cart" element={<CartPage />} />
       
+       
+       <Route path='/adminmenu' element={<AdminMenu/>}/>
         <Route path="/dashboard" element={<AdminRoute />}/>
           <Route path="/admin" element={<AdminDashboard />} />
         <Route path = '/user' element = {<Dashboard/>}/>

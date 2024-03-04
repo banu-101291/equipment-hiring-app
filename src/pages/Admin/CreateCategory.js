@@ -39,8 +39,8 @@ const CreateCategory = () => {
   
   const getAllCategory = async () => {
     try{
-      const{data} = await axios.get('https://ecommerce-u4ub.onrender.com/api/v1/category/get-category')
-      if(data.success) {
+      const{data} = await axios.get('https://hiring-backend-wgpz.onrender.com//get-category')
+      if(data.success) {ategor
         setCategories(data.category);
       }
 

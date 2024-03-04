@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useAuth } from "../../context/auth";
+import { useAuth} from '../../provider/Authprovider';
 
 const Login = () => {
-  const [input, setInput] = useState({
+  const [input] = useState({
     username: "",
     password: "",
   });

@@ -5,7 +5,7 @@ import axios from 'axios'; // Import Axios library
 import '../styles/SignUp.css';
 import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
-import Layout from './Layout/Layout';
+//import Layout from './Layout/Layout';
 
 const SignUp = () => {
     const [name, setName] = useState("");
@@ -18,7 +18,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const res = await axios.post("api", {
+        const res = await axios.post("https://hiring-backend-wgpz.onrender.com", {
           name,
           email,
           password,
@@ -37,7 +37,7 @@ const SignUp = () => {
     };
     return (
     
-       <Layout title="Signup">
+       //<Layout title="Signup">
        <div className="form-container ">
          <Form onSubmit={handleSubmit}>
            <h4 className="title">SignUp</h4>
@@ -76,10 +76,10 @@ const SignUp = () => {
              />
            </div>
                     <Button variant="primary" type="submit" className="custom-button">Register</Button>
-                    <p>Already have an account?<Link to='/login' className="login-link">Login</Link></p>
+                    <p>Already have an account?<Link to='/loginPage' className="login-link">Login</Link></p>
               </Form> 
             </div>
-            </Layout>
+          //  </Layout>
             
         
     );
