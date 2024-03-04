@@ -20,7 +20,7 @@ const CreateCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("https://ecommerce-u4ub.onrender.com/api/v1/category/create-category", {
+      const { data } = await axios.post("api", {
         name,
       });
       if (data?.success) {
